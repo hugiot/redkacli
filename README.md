@@ -4,22 +4,22 @@
 
 ### Strings
 
-| Redis Command    | redkacli.Client | redka.DB            | Description                                       |
-|-------------|-----------------|---------------------|--------------------------------------------|
-| DECR        |                 | DB.Str().Incr       | Decrements the integer value of a key by one.|
-| DECRBY      |                 | DB.Str().Incr       | Decrements a number from the integer value of a key.|
-| GET         |                 | DB.Str().Get        | Returns the value of a key.                |
-| GETSET      |                 | DB.Str().SetWith    | Sets the key to a new value and returns the prev value.|
-| INCR        |                 | DB.Str().Incr       | Increments the integer value of a key by one.|
-| INCRBY      |                 | DB.Str().Incr       | Increments the integer value of a key by a number.|
-| INCRBYFLOAT |                 | DB.Str().IncrFloat  | Increments the float value of a key by a number.|
-| MGET        |                 | DB.Str().GetMany    | Returns the values of one or more keys.      |
-| MSET        |                 | DB.Str().SetMany    | Sets the values of one or more keys.         |
-| PSETEX      |                 | DB.Str().SetExpires | Sets the value and expiration time (in ms) of a key.|
-| SET         |                 | DB.Str().Set        | Sets the value of a key.                     |
-| SETEX       |                 | DB.Str().SetExpires | Sets the value and expiration (in sec) time of a key.|
-| SETNX       |                 | DB.Str().SetWith    | Sets the value of a key when the key doesn't exist.|
-| STRLEN      |                 | DB.Str().Get        | Returns the length of a value in bytes.      |
+| Redis Command    | redkacli.Client    | redka.DB            | Description                                       |
+|-------------|--------------------|---------------------|--------------------------------------------|
+| DECR        | client.Decr        | DB.Str().Incr       | Decrements the integer value of a key by one.|
+| DECRBY      | client.DecrBy      | DB.Str().Incr       | Decrements a number from the integer value of a key.|
+| GET         | client.Get         | DB.Str().Get        | Returns the value of a key.                |
+| GETSET      | client.GetSet      | DB.Str().SetWith    | Sets the key to a new value and returns the prev value.|
+| INCR        | client.Incr        | DB.Str().Incr       | Increments the integer value of a key by one.|
+| INCRBY      | client.IncrBy      | DB.Str().Incr       | Increments the integer value of a key by a number.|
+| INCRBYFLOAT | client.IncrByFloat | DB.Str().IncrFloat  | Increments the float value of a key by a number.|
+| MGET        | client.MGet        | DB.Str().GetMany    | Returns the values of one or more keys.      |
+| MSET        | client.MSet        | DB.Str().SetMany    | Sets the values of one or more keys.         |
+| PSETEX      | client.PSetEx      | DB.Str().SetExpires | Sets the value and expiration time (in ms) of a key.|
+| SET         | client.Set         | DB.Str().Set        | Sets the value of a key.                     |
+| SETEX       | client.SetEx       | DB.Str().SetExpires | Sets the value and expiration (in sec) time of a key.|
+| SETNX       | client.SetNX       | DB.Str().SetWith    | Sets the value of a key when the key doesn't exist.|
+| STRLEN      | client.StrLen      | DB.Str().Get        | Returns the length of a value in bytes.      |
 
 
 ### Hashes
