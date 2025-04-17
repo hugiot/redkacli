@@ -56,16 +56,16 @@ func (c *client) HMSet(key string, values map[string]interface{}) (int, error) {
 	return c.db.Hash().SetMany(key, values)
 }
 
-func (c *client) HScan(key string, cursor int, match string, count int) (int, map[string]Value, error) {
+func (c *client) HScan(key string, cursor int, match string, count int) (map[string]Value, int, error) {
 	list, err := c.db.Hash().Scan(key, cursor, match, count)
 	if err != nil {
-		return 0, nil, err
+		return nil, 0, err
 	}
 	result := make(map[string]Value)
 	for _, item := range list.Items {
 		result[item.Field] = item.Value
 	}
-	return list.Cursor, result, nil
+	return result, list.Cursor, err
 }
 
 func (c *client) HSet(key string, field string, value interface{}) (bool, error) {
