@@ -67,20 +67,20 @@
 
 ### Lists
 
-| Redis Command    | redkacli.Client | redka.DB            | Description                                       |
-|-------------|-----------------|---------------------|--------------------------------------------|
-| LINDEX        |                 | DB.List().Get       | Returns an element by its index.           |
-| LINSERT       |                 | DB.List().Insert*   | Inserts an element before or after another element.|
-| LLEN          |                 | DB.List().Len       | Returns the length of a list.              |
-| LPOP          |                 | DB.List().PopFront  | Returns the first element after removing it.|
-| LPUSH         |                 | DB.List().PushFront | Prepends an element to a list.             |
-| LRANGE        |                 | DB.List().Range     | Returns a range of elements.               |
-| LREM          |                 | DB.List().Delete*   | Removes elements from a list.              |
-| LSET          |                 | DB.List().Set       | Sets the value of an element by its index.   |
-| LTRIM         |                 | DB.List().Trim      | Removes elements from both ends of a list. |
-| RPOP          |                 | DB.List().PopBack   | Returns the last element after removing it.|
-| RPOPLPUSH     |                 | DB.List().PopBackPushFront | Removes the last element and pushes it to another list.|
-| RPUSH         |                 | DB.List().PushBack  | Appends an element to a list.              |
+| Redis Command    | redkacli.Client  | redka.DB            | Description                                       |
+|-------------|------------------|---------------------|--------------------------------------------|
+| LINDEX        | client.LIndex    | DB.List().Get       | Returns an element by its index.           |
+| LINSERT       | client.LInsert   | DB.List().Insert*   | Inserts an element before or after another element.|
+| LLEN          | client.LLen      | DB.List().Len       | Returns the length of a list.              |
+| LPOP          | client.LPop      | DB.List().PopFront  | Returns the first element after removing it.|
+| LPUSH         | client.LPush     | DB.List().PushFront | Prepends an element to a list.             |
+| LRANGE        | client.LRange    | DB.List().Range     | Returns a range of elements.               |
+| LREM          | client.LRem      | DB.List().Delete*   | Removes elements from a list.              |
+| LSET          | client.LSet      | DB.List().Set       | Sets the value of an element by its index.   |
+| LTRIM         | client.LTrim     | DB.List().Trim      | Removes elements from both ends of a list. |
+| RPOP          | client.RPop      | DB.List().PopBack   | Returns the last element after removing it.|
+| RPOPLPUSH     | client.RPopLPush | DB.List().PopBackPushFront | Removes the last element and pushes it to another list.|
+| RPUSH         | client.RPush          | DB.List().PushBack  | Appends an element to a list.              |
 
 
 ### Server/connection management
