@@ -56,6 +56,34 @@ func (c *client) HMSet(key string, values map[string]interface{}) (int, error) {
 	return c.db.Hash().SetMany(key, values)
 }
 
-func (c *client) HScan(key string, cursor int, match string, count int) {
+func (c *client) HScan(key string, cursor int, match string, count int) (int, map[string]Value, error) {
+	list, err := c.db.Hash().Scan(key, cursor, match, count)
+	if err != nil {
+		return 0, nil, err
+	}
+	result := make(map[string]Value)
+	for _, item := range list.Items {
+		result[item.Field] = item.Value
+	}
+	return list.Cursor, result, nil
+}
 
+func (c *client) HSet(key string, field string, value interface{}) (bool, error) {
+	return c.db.Hash().Set(key, field, value)
+}
+
+func (c *client) HSetNX(key string, field string, value interface{}) (bool, error) {
+	return c.db.Hash().SetNotExists(key, field, value)
+}
+
+func (c *client) HVals(key string) ([]Value, error) {
+	values, err := c.db.Hash().Values(key)
+	if err != nil {
+		return nil, err
+	}
+	result := make([]Value, 0, len(values))
+	for _, value := range values {
+		result = append(result, value)
+	}
+	return result, nil
 }
