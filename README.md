@@ -141,9 +141,9 @@
 
 ### Transactions
 
-| Redis Command | redkacli.Client | redka.DB            | Description                                       |
-|------------|-----------------|---------------------|--------------------------------------------|
-| DISCARD    |                 | DB.View / DB.Update | Discards a transaction.                    |
-| EXEC       |                 | DB.View / DB.Update | Executes all commands in a transaction.    |
-| MULTI      |                 | DB.View / DB.Update | Starts a transaction.                      |
+| Redis Command | redkacli.Client    | redka.DB            | Description                                       |
+|------------|--------------------|---------------------|--------------------------------------------|
+| DISCARD    | client.Transaction | DB.View / DB.Update | Discards a transaction.                    |
+| EXEC       | client.Transaction | DB.View / DB.Update | Executes all commands in a transaction.    |
+| MULTI      | client.Transaction | DB.View / DB.Update | Starts a transaction.                      |
 
