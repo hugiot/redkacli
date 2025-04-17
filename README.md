@@ -87,10 +87,10 @@
 
 | Redis Command | redkacli.Client | redka.DB            | Description                                       |
 |------------|-----------------|---------------------|--------------------------------------------|
-| ECHO       |                 |                     | Returns the given string.                  |
-| LOLWUT     |                 |                     | Provides an answer to a yes/no question.     |
-| PING       |                 |                     | Returns the server's liveliness response.    |
-| SELECT     |                 |                     | Changes the selected database (no-op).     |
+| ECHO       | client.Echo     |                     | Returns the given string.                  |
+| LOLWUT     | client.LOLWUT   |                     | Provides an answer to a yes/no question.     |
+| PING       | client.Ping     |                     | Returns the server's liveliness response.    |
+| SELECT     | client.Select         |                     | Changes the selected database (no-op).     |
 
 
 ### Sets
