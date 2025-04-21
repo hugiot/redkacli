@@ -116,27 +116,27 @@
 
 ### Zsets
 
-| Redis Command      | redkacli.Client | redka.DB            | Description                                       |
-|-----------------|-----------------|---------------------|--------------------------------------------|
-| ZADD            |                 | DB.ZSet().AddMany   | Adds or updates one or more members of a set.|
-| ZCARD           |                 | DB.ZSet().Len       | Returns the number of members in a set.      |
-| ZCOUNT          |                 | DB.ZSet().Count     | Returns the number of members of a set within a range of scores.|
-| ZINCRBY         |                 | DB.ZSet().Incr      | Increments the score of a member in a set.   |
-| ZINTER          |                 | DB.ZSet().InterWith | Returns the intersection of multiple sets.   |
-| ZINTERSTORE     |                 | DB.ZSet().InterWith | Stores the intersection of multiple sets in a key.|
-| ZRANGE          |                 | DB.ZSet().RangeWith | Returns members of a set within a range of indexes.|
-| ZRANGEBYSCORE   |                 | DB.ZSet().RangeWith | Returns members of a set within a range of scores.|
-| ZRANK           |                 | DB.ZSet().GetRank   | Returns the index of a member in a set ordered by ascending scores.|
-| ZREM            |                 | DB.ZSet().Delete    | Removes one or more members from a set.    |
-| ZREMRANGEBYRANK |                 | DB.ZSet().DeleteWith| Removes members of a set within a range of indexes.|
-| ZREMRANGEBYSCORE|                 | DB.ZSet().DeleteWith| Removes members of a set within a range of scores.|
-| ZREVRANGE       |                 | DB.ZSet().RangeWith | Returns members of a set within a range of indexes in reverse order.|
-| ZREVRANGEBYSCORE|                 | DB.ZSet().RangeWith | Returns members of a set within a range of scores in reverse order.|
-| ZREVRANK        |                 | DB.ZSet().GetRankRev| Returns the index of a member in a set ordered by descending scores.|
-| ZSCAN           |                 | DB.ZSet().Scan      | Iterates over members and scores of a set. |
-| ZSCORE          |                 | DB.ZSet().GetScore  | Returns the score of a member in a set.    |
-| ZUNION          |                 | DB.ZSet().UnionWith | Returns the union of multiple sets.        |
-| ZUNIONSTORE     |                 | DB.ZSet().UnionWith | Stores the union of multiple sets in a key.  |
+| Redis Command      | redkacli.Client         | redka.DB            | Description                                       |
+|-----------------|-------------------------|---------------------|--------------------------------------------|
+| ZADD            | client.ZAdd             | DB.ZSet().AddMany   | Adds or updates one or more members of a set.|
+| ZCARD           | client.ZCard            | DB.ZSet().Len       | Returns the number of members in a set.      |
+| ZCOUNT          | client.ZCount           | DB.ZSet().Count     | Returns the number of members of a set within a range of scores.|
+| ZINCRBY         | client.ZIncrBy          | DB.ZSet().Incr      | Increments the score of a member in a set.   |
+| ZINTER          | client.ZInter           | DB.ZSet().InterWith | Returns the intersection of multiple sets.   |
+| ZINTERSTORE     | client.ZInterStore      | DB.ZSet().InterWith | Stores the intersection of multiple sets in a key.|
+| ZRANGE          | client.ZRange           | DB.ZSet().RangeWith | Returns members of a set within a range of indexes.|
+| ZRANGEBYSCORE   | client.ZRangeByScore    | DB.ZSet().RangeWith | Returns members of a set within a range of scores.|
+| ZRANK           | client.ZRank            | DB.ZSet().GetRank   | Returns the index of a member in a set ordered by ascending scores.|
+| ZREM            | client.ZRem             | DB.ZSet().Delete    | Removes one or more members from a set.    |
+| ZREMRANGEBYRANK | client.ZRemRangeByRank  | DB.ZSet().DeleteWith| Removes members of a set within a range of indexes.|
+| ZREMRANGEBYSCORE| client.ZRemRangeByScore | DB.ZSet().DeleteWith| Removes members of a set within a range of scores.|
+| ZREVRANGE       | client.ZRevRange        | DB.ZSet().RangeWith | Returns members of a set within a range of indexes in reverse order.|
+| ZREVRANGEBYSCORE| client.ZRevRangeByScore | DB.ZSet().RangeWith | Returns members of a set within a range of scores in reverse order.|
+| ZREVRANK        | client.ZRevRank         | DB.ZSet().GetRankRev| Returns the index of a member in a set ordered by descending scores.|
+| ZSCAN           | client.ZScan            | DB.ZSet().Scan      | Iterates over members and scores of a set. |
+| ZSCORE          | client.ZScore           | DB.ZSet().GetScore  | Returns the score of a member in a set.    |
+| ZUNION          | client.ZUnion           | DB.ZSet().UnionWith | Returns the union of multiple sets.        |
+| ZUNIONSTORE     | client.ZUnionStore                 | DB.ZSet().UnionWith | Stores the union of multiple sets in a key.  |
 
 
 ### Transactions
