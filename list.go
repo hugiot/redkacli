@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-func (c *client) LIndex(key string, index int) (string, error) {
+func (c *Client) LIndex(key string, index int) (string, error) {
 	value, err := c.db.List().Get(key, index)
 	if err != nil {
 		return "", err
@@ -14,21 +14,24 @@ func (c *client) LIndex(key string, index int) (string, error) {
 	return value.String(), nil
 }
 
-func (c *client) LInsert(key string, op string, pivot string, value string) (int, error) {
+func (c *Client) LInsert(key string, op string, pivot string, value string) (int64, error) {
 	switch strings.ToLower(op) {
 	case "before":
-		return c.db.List().InsertBefore(key, pivot, value)
+		i, err := c.db.List().InsertBefore(key, pivot, value)
+		return int64(i), err
 	case "after":
-		return c.db.List().InsertAfter(key, pivot, value)
+		i, err := c.db.List().InsertAfter(key, pivot, value)
+		return int64(i), err
 	}
 	return 0, errors.New("unknown op")
 }
 
-func (c *client) LLen(key string) (int, error) {
-	return c.db.List().Len(key)
+func (c *Client) LLen(key string) (int64, error) {
+	i, err := c.db.List().Len(key)
+	return int64(i), err
 }
 
-func (c *client) LPop(key string) (string, error) {
+func (c *Client) LPop(key string) (string, error) {
 	value, err := c.db.List().PopFront(key)
 	if err != nil {
 		return "", err
@@ -36,23 +39,23 @@ func (c *client) LPop(key string) (string, error) {
 	return value.String(), nil
 }
 
-func (c *client) LPush(key string, values ...string) (int, error) {
+func (c *Client) LPush(key string, elements ...interface{}) (int64, error) {
 	var i int
 	var err error
 	err = c.db.Update(func(tx *redka.Tx) error {
-		for _, value := range values {
-			i, err = tx.List().PushFront(key, value)
+		for _, element := range elements {
+			i, err = tx.List().PushFront(key, element)
 			if err != nil {
 				return err
 			}
 		}
 		return nil
 	})
-	return i, err
+	return int64(i), err
 }
 
-func (c *client) LRange(key string, start int, stop int) ([]string, error) {
-	values, err := c.db.List().Range(key, start, stop)
+func (c *Client) LRange(key string, start int64, stop int64) ([]string, error) {
+	values, err := c.db.List().Range(key, int(start), int(stop))
 	if err != nil {
 		return nil, err
 	}
@@ -63,19 +66,21 @@ func (c *client) LRange(key string, start int, stop int) ([]string, error) {
 	return result, nil
 }
 
-func (c *client) LRem(key string, count int, value string) (int, error) {
-	return c.db.List().DeleteFront(key, value, count)
+func (c *Client) LRem(key string, count int, element string) (int64, error) {
+	i, err := c.db.List().DeleteFront(key, element, count)
+	return int64(i), err
 }
 
-func (c *client) LSet(key string, index int, value string) error {
-	return c.db.List().Set(key, index, value)
+func (c *Client) LSet(key string, index int, element string) error {
+	return c.db.List().Set(key, index, element)
 }
 
-func (c *client) LTrim(key string, start, stop int) (int, error) {
-	return c.db.List().Trim(key, start, stop)
+func (c *Client) LTrim(key string, start, stop int64) (int64, error) {
+	i, err := c.db.List().Trim(key, int(start), int(stop))
+	return int64(i), err
 }
 
-func (c *client) RPop(key string) (string, error) {
+func (c *Client) RPop(key string) (string, error) {
 	value, err := c.db.List().PopBack(key)
 	if err != nil {
 		return "", err
@@ -83,7 +88,7 @@ func (c *client) RPop(key string) (string, error) {
 	return value.String(), nil
 }
 
-func (c *client) RPopLPush(source string, destination string) (string, error) {
+func (c *Client) RPopLPush(source string, destination string) (string, error) {
 	value, err := c.db.List().PopBackPushFront(source, destination)
 	if err != nil {
 		return "", err
@@ -91,12 +96,12 @@ func (c *client) RPopLPush(source string, destination string) (string, error) {
 	return value.String(), nil
 }
 
-func (c *client) RPush(key string, values ...string) (int, error) {
+func (c *Client) RPush(key string, elements ...interface{}) (int64, error) {
 	var i int
 	var err error
 	err = c.db.Update(func(tx *redka.Tx) error {
-		for _, value := range values {
-			i, err = tx.List().PushFront(key, value)
+		for _, element := range elements {
+			i, err = tx.List().PushBack(key, element)
 			if err != nil {
 				return err
 			}

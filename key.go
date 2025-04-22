@@ -6,35 +6,39 @@ import (
 	"time"
 )
 
-func (c *client) DBSize() (int, error) {
-	return c.db.Key().Len()
+func (c *Client) DBSize() (int64, error) {
+	i, err := c.db.Key().Len()
+	return int64(i), err
 }
 
-func (c *client) Del(keys ...string) (int, error) {
-	return c.db.Key().Delete(keys...)
+func (c *Client) Del(keys ...string) (int64, error) {
+	i, err := c.db.Key().Delete(keys...)
+	return int64(i), err
 }
 
-func (c *client) Exists(key string) (bool, error) {
+func (c *Client) Exists(key string) (bool, error) {
 	return c.db.Key().Exists(key)
 }
 
-func (c *client) Expire(key string, expiration time.Duration) error {
+func (c *Client) Expire(key string, seconds int64) error {
+	expiration := time.Duration(seconds) * time.Second
 	return c.db.Key().Expire(key, expiration)
 }
 
-func (c *client) ExpireAt(key string, expiration time.Time) error {
+func (c *Client) ExpireAt(key string, timestamp int64) error {
+	expiration := time.Unix(timestamp, 0)
 	return c.db.Key().ExpireAt(key, expiration)
 }
 
-func (c *client) FlushAll() error {
+func (c *Client) FlushAll() error {
 	return c.db.Key().DeleteAll()
 }
 
-func (c *client) FlushDB() error {
+func (c *Client) FlushDB() error {
 	return c.db.Key().DeleteAll()
 }
 
-func (c *client) Keys(pattern string) ([]string, error) {
+func (c *Client) Keys(pattern string) ([]string, error) {
 	keys, err := c.db.Key().Keys(pattern)
 	if err != nil {
 		return nil, err
@@ -46,19 +50,21 @@ func (c *client) Keys(pattern string) ([]string, error) {
 	return result, nil
 }
 
-func (c *client) Persist(key string) error {
+func (c *Client) Persist(key string) error {
 	return c.db.Key().Persist(key)
 }
 
-func (c *client) PExpire(key string, expiration time.Duration) error {
+func (c *Client) PExpire(key string, milliseconds int64) error {
+	expiration := time.Duration(milliseconds) * time.Millisecond
 	return c.db.Key().Expire(key, expiration)
 }
 
-func (c *client) PExpireAt(key string, expiration time.Time) error {
+func (c *Client) PExpireAt(key string, timestamp int64) error {
+	expiration := time.Unix(timestamp, 0)
 	return c.db.Key().ExpireAt(key, expiration)
 }
 
-func (c *client) RandomKey() (string, error) {
+func (c *Client) RandomKey() (string, error) {
 	key, err := c.db.Key().Random()
 	if err != nil {
 		return "", err
@@ -66,15 +72,15 @@ func (c *client) RandomKey() (string, error) {
 	return key.Key, nil
 }
 
-func (c *client) Rename(key, newKey string) error {
+func (c *Client) Rename(key, newKey string) error {
 	return c.db.Key().Rename(key, newKey)
 }
 
-func (c *client) RenameNX(key, newKey string) (bool, error) {
+func (c *Client) RenameNX(key, newKey string) (bool, error) {
 	return c.db.Key().RenameNotExists(key, newKey)
 }
 
-func (c *client) Scan(cursor int, match string, count int) ([]string, int, error) {
+func (c *Client) Scan(cursor int, match string, count int) ([]string, int, error) {
 	list, err := c.db.Key().Scan(cursor, match, 0, count)
 	if err != nil {
 		return nil, 0, err
@@ -86,7 +92,7 @@ func (c *client) Scan(cursor int, match string, count int) ([]string, int, error
 	return result, list.Cursor, nil
 }
 
-func (c *client) TTL(key string) (int64, error) {
+func (c *Client) TTL(key string) (int64, error) {
 	k, err := c.db.Key().Get(key)
 	if err != nil {
 		if errors.Is(err, redka.ErrNotFound) {
@@ -100,7 +106,7 @@ func (c *client) TTL(key string) (int64, error) {
 	return *k.ETime / 1000, nil
 }
 
-func (c *client) Type(key string) (string, error) {
+func (c *Client) Type(key string) (string, error) {
 	k, err := c.db.Key().Get(key)
 	if err != nil {
 		return "", err
