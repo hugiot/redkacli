@@ -4,146 +4,146 @@
 
 ### Strings
 
-| Redis Command    | redkacli.Client    | redka.DB            | Description                                       |
-|-------------|--------------------|---------------------|--------------------------------------------|
-| DECR        | client.Decr        | DB.Str().Incr       | Decrements the integer value of a key by one.|
-| DECRBY      | client.DecrBy      | DB.Str().Incr       | Decrements a number from the integer value of a key.|
-| GET         | client.Get         | DB.Str().Get        | Returns the value of a key.                |
-| GETSET      | client.GetSet      | DB.Str().SetWith    | Sets the key to a new value and returns the prev value.|
-| INCR        | client.Incr        | DB.Str().Incr       | Increments the integer value of a key by one.|
-| INCRBY      | client.IncrBy      | DB.Str().Incr       | Increments the integer value of a key by a number.|
-| INCRBYFLOAT | client.IncrByFloat | DB.Str().IncrFloat  | Increments the float value of a key by a number.|
-| MGET        | client.MGet        | DB.Str().GetMany    | Returns the values of one or more keys.      |
-| MSET        | client.MSet        | DB.Str().SetMany    | Sets the values of one or more keys.         |
-| PSETEX      | client.PSetEx      | DB.Str().SetExpires | Sets the value and expiration time (in ms) of a key.|
-| SET         | client.Set         | DB.Str().Set        | Sets the value of a key.                     |
-| SETEX       | client.SetEx       | DB.Str().SetExpires | Sets the value and expiration (in sec) time of a key.|
-| SETNX       | client.SetNX       | DB.Str().SetWith    | Sets the value of a key when the key doesn't exist.|
-| STRLEN      | client.StrLen      | DB.Str().Get        | Returns the length of a value in bytes.      |
+| Redis Command | redkacli.Client    | redka.DB            | Description                                             |
+|---------------|--------------------|---------------------|---------------------------------------------------------|
+| DECR          | client.Decr        | DB.Str().Incr       | Decrements the integer value of a key by one.           |
+| DECRBY        | client.DecrBy      | DB.Str().Incr       | Decrements a number from the integer value of a key.    |
+| GET           | client.Get         | DB.Str().Get        | Returns the value of a key.                             |
+| GETSET        | client.GetSet      | DB.Str().SetWith    | Sets the key to a new value and returns the prev value. |
+| INCR          | client.Incr        | DB.Str().Incr       | Increments the integer value of a key by one.           |
+| INCRBY        | client.IncrBy      | DB.Str().Incr       | Increments the integer value of a key by a number.      |
+| INCRBYFLOAT   | client.IncrByFloat | DB.Str().IncrFloat  | Increments the float value of a key by a number.        |
+| MGET          | client.MGet        | DB.Str().GetMany    | Returns the values of one or more keys.                 |
+| MSET          | client.MSet        | DB.Str().SetMany    | Sets the values of one or more keys.                    |
+| PSETEX        | client.PSetEx      | DB.Str().SetExpires | Sets the value and expiration time (in ms) of a key.    |
+| SET           | client.Set         | DB.Str().Set        | Sets the value of a key.                                |
+| SETEX         | client.SetEx       | DB.Str().SetExpires | Sets the value and expiration (in sec) time of a key.   |
+| SETNX         | client.SetNX       | DB.Str().SetWith    | Sets the value of a key when the key doesn't exist.     |
+| STRLEN        | client.StrLen      | DB.Str().Get        | Returns the length of a value in bytes.                 |
 
 
 ### Hashes
 
-| Redis Command    | redkacli.Client     | redka.DB                             | Description                                       |
-|-------------|---------------------|--------------------------------------|--------------------------------------------|
-| HDEL        | client.HDel         | DB.Hash().Delete                     | Deletes one or more fields and their values.|
-| HEXISTS       | client.HExists      | DB.Hash().Exists                     | Determines whether a field exists.         |
-| HGET        | client.HGet         | DB.Hash().Get                        | Returns the value of a field.              |
-| HGETALL       | client.HGetAll      | DB.Hash().Items                      | Returns all fields and values.           |
-| HINCRBY       | client.HincrBy      | DB.Hash().Incr                       | Increments the integer value of a field.   |
-| HINCRBYFLOAT  | client.HIncrByFloat | DB.Hash().IncrFloat                  | Increments the float value of a field.     |
-| HKEYS         | client.HKeys        | DB.Hash().Keys => DB.Hash().Fields   | Returns all fields.                      |
-| HLEN          | client.HLen         | DB.Hash().Len                        | Returns the number of fields.              |
-| HMGET         | client.HMGet        | DB.Hash().GetMany                    | Returns the values of multiple fields.     |
-| HMSET         | client.HMSet        | DB.Hash().SetMany                    | Sets the values of multiple fields.        |
-| HSCAN         | client.HScan        | DB.Hash().Scanner                    | Iterates over fields and values.         |
-| HSET          | client.HSet         | DB.Hash().SetMany                    | Sets the values of one or more fields.     |
-| HSETNX        | client.HSetNX       | DB.Hash().SetNotExists               | Sets the value of a field when it doesn't exist.|
-| HVALS         | client.HVals             | DB.Hash().Exists => DB.Hash().Values | Returns all values.                        |
+| Redis Command | redkacli.Client     | redka.DB                             | Description                                      |
+|---------------|---------------------|--------------------------------------|--------------------------------------------------|
+| HDEL          | client.HDel         | DB.Hash().Delete                     | Deletes one or more fields and their values.     |
+| HEXISTS       | client.HExists      | DB.Hash().Exists                     | Determines whether a field exists.               |
+| HGET          | client.HGet         | DB.Hash().Get                        | Returns the value of a field.                    |
+| HGETALL       | client.HGetAll      | DB.Hash().Items                      | Returns all fields and values.                   |
+| HINCRBY       | client.HincrBy      | DB.Hash().Incr                       | Increments the integer value of a field.         |
+| HINCRBYFLOAT  | client.HIncrByFloat | DB.Hash().IncrFloat                  | Increments the float value of a field.           |
+| HKEYS         | client.HKeys        | DB.Hash().Keys => DB.Hash().Fields   | Returns all fields.                              |
+| HLEN          | client.HLen         | DB.Hash().Len                        | Returns the number of fields.                    |
+| HMGET         | client.HMGet        | DB.Hash().GetMany                    | Returns the values of multiple fields.           |
+| HMSET         | client.HMSet        | DB.Hash().SetMany                    | Sets the values of multiple fields.              |
+| HSCAN         | client.HScan        | DB.Hash().Scanner                    | Iterates over fields and values.                 |
+| HSET          | client.HSet         | DB.Hash().SetMany                    | Sets the values of one or more fields.           |
+| HSETNX        | client.HSetNX       | DB.Hash().SetNotExists               | Sets the value of a field when it doesn't exist. |
+| HVALS         | client.HVals        | DB.Hash().Exists => DB.Hash().Values | Returns all values.                              |
 
 
 ### Key management
 
-| Redis Command    | redkacli.Client  | redka.DB            | Description                                       |
-|-------------|------------------|---------------------|--------------------------------------------|
-| DBSIZE        | client.DBSize    | DB.Key().Len        | Returns the total number of keys.          |
-| DEL           | client.Del       | DB.Key().Delete     | Deletes one or more keys.                  |
-| EXISTS        | client.Exists    | DB.Key().Count      | Determines whether one or more keys exist. |
-| EXPIRE        | client.Expire    | DB.Key().Expire     | Sets the expiration time of a key (in seconds).|
-| EXPIREAT      | client.ExpireAt  | DB.Key().ExpireAt   | Sets the expiration time of a key to a Unix timestamp.|
-| FLUSHALL      | client.FlushAll  | DB.Key().DeleteAll  | Deletes all keys from the database.        |
-| FLUSHDB       | client.FlushDB   | DB.Key().DeleteAll  | Deletes all keys from the database.        |
-| KEYS          | client.Keys      | DB.Key().Keys       | Returns all key names that match a pattern.|
-| PERSIST       | client.Persist   | DB.Key().Persist    | Removes the expiration time of a key.      |
-| PEXPIRE       | client.PExpire   | DB.Key().Expire     | Sets the expiration time of a key in ms.   |
-| PEXPIREAT     | client.PExpireAt | DB.Key().ExpireAt   | Sets the expiration time of a key to a Unix ms timestamp.|
-| RANDOMKEY     | client.RandomKey | DB.Key().Random     | Returns a random key name from the database.|
-| RENAME        | client.Rename    | DB.Key().Rename     | Renames a key and overwrites the destination.|
-| RENAMENX      | client.RenameNX  | DB.Key().RenameNotExists | Renames a key only when the target key name doesn't exist.|
-| SCAN          | client.Scan      | DB.Key().Scanner    | Iterates over the key names in the database.|
-| TTL           | client.TTL       | DB.Key().Get        | Returns the expiration time in seconds of a key.|
-| TYPE          | client.Type          | DB.Key().Get        | Returns the type of value stored at a key. |
+| Redis Command | redkacli.Client  | redka.DB                 | Description                                                |
+|---------------|------------------|--------------------------|------------------------------------------------------------|
+| DBSIZE        | client.DBSize    | DB.Key().Len             | Returns the total number of keys.                          |
+| DEL           | client.Del       | DB.Key().Delete          | Deletes one or more keys.                                  |
+| EXISTS        | client.Exists    | DB.Key().Count           | Determines whether one or more keys exist.                 |
+| EXPIRE        | client.Expire    | DB.Key().Expire          | Sets the expiration time of a key (in seconds).            |
+| EXPIREAT      | client.ExpireAt  | DB.Key().ExpireAt        | Sets the expiration time of a key to a Unix timestamp.     |
+| FLUSHALL      | client.FlushAll  | DB.Key().DeleteAll       | Deletes all keys from the database.                        |
+| FLUSHDB       | client.FlushDB   | DB.Key().DeleteAll       | Deletes all keys from the database.                        |
+| KEYS          | client.Keys      | DB.Key().Keys            | Returns all key names that match a pattern.                |
+| PERSIST       | client.Persist   | DB.Key().Persist         | Removes the expiration time of a key.                      |
+| PEXPIRE       | client.PExpire   | DB.Key().Expire          | Sets the expiration time of a key in ms.                   |
+| PEXPIREAT     | client.PExpireAt | DB.Key().ExpireAt        | Sets the expiration time of a key to a Unix ms timestamp.  |
+| RANDOMKEY     | client.RandomKey | DB.Key().Random          | Returns a random key name from the database.               |
+| RENAME        | client.Rename    | DB.Key().Rename          | Renames a key and overwrites the destination.              |
+| RENAMENX      | client.RenameNX  | DB.Key().RenameNotExists | Renames a key only when the target key name doesn't exist. |
+| SCAN          | client.Scan      | DB.Key().Scanner         | Iterates over the key names in the database.               |
+| TTL           | client.TTL       | DB.Key().Get             | Returns the expiration time in seconds of a key.           |
+| TYPE          | client.Type      | DB.Key().Get             | Returns the type of value stored at a key.                 |
 
 
 ### Lists
 
-| Redis Command    | redkacli.Client  | redka.DB            | Description                                       |
-|-------------|------------------|---------------------|--------------------------------------------|
-| LINDEX        | client.LIndex    | DB.List().Get       | Returns an element by its index.           |
-| LINSERT       | client.LInsert   | DB.List().Insert*   | Inserts an element before or after another element.|
-| LLEN          | client.LLen      | DB.List().Len       | Returns the length of a list.              |
-| LPOP          | client.LPop      | DB.List().PopFront  | Returns the first element after removing it.|
-| LPUSH         | client.LPush     | DB.List().PushFront | Prepends an element to a list.             |
-| LRANGE        | client.LRange    | DB.List().Range     | Returns a range of elements.               |
-| LREM          | client.LRem      | DB.List().Delete*   | Removes elements from a list.              |
-| LSET          | client.LSet      | DB.List().Set       | Sets the value of an element by its index.   |
-| LTRIM         | client.LTrim     | DB.List().Trim      | Removes elements from both ends of a list. |
-| RPOP          | client.RPop      | DB.List().PopBack   | Returns the last element after removing it.|
-| RPOPLPUSH     | client.RPopLPush | DB.List().PopBackPushFront | Removes the last element and pushes it to another list.|
-| RPUSH         | client.RPush          | DB.List().PushBack  | Appends an element to a list.              |
+| Redis Command | redkacli.Client  | redka.DB                   | Description                                             |
+|---------------|------------------|----------------------------|---------------------------------------------------------|
+| LINDEX        | client.LIndex    | DB.List().Get              | Returns an element by its index.                        |
+| LINSERT       | client.LInsert   | DB.List().Insert*          | Inserts an element before or after another element.     |
+| LLEN          | client.LLen      | DB.List().Len              | Returns the length of a list.                           |
+| LPOP          | client.LPop      | DB.List().PopFront         | Returns the first element after removing it.            |
+| LPUSH         | client.LPush     | DB.List().PushFront        | Prepends an element to a list.                          |
+| LRANGE        | client.LRange    | DB.List().Range            | Returns a range of elements.                            |
+| LREM          | client.LRem      | DB.List().Delete*          | Removes elements from a list.                           |
+| LSET          | client.LSet      | DB.List().Set              | Sets the value of an element by its index.              |
+| LTRIM         | client.LTrim     | DB.List().Trim             | Removes elements from both ends of a list.              |
+| RPOP          | client.RPop      | DB.List().PopBack          | Returns the last element after removing it.             |
+| RPOPLPUSH     | client.RPopLPush | DB.List().PopBackPushFront | Removes the last element and pushes it to another list. |
+| RPUSH         | client.RPush     | DB.List().PushBack         | Appends an element to a list.                           |
 
 
 ### Server/connection management
 
-| Redis Command | redkacli.Client | redka.DB            | Description                                       |
-|------------|-----------------|---------------------|--------------------------------------------|
-| ECHO       | client.Echo     |                     | Returns the given string.                  |
-| LOLWUT     | client.LOLWUT   |                     | Provides an answer to a yes/no question.     |
-| PING       | client.Ping     |                     | Returns the server's liveliness response.    |
-| SELECT     | client.Select         |                     | Changes the selected database (no-op).     |
+| Redis Command | redkacli.Client | redka.DB | Description                               |
+|---------------|-----------------|----------|-------------------------------------------|
+| ECHO          | client.Echo     |          | Returns the given string.                 |
+| LOLWUT        | client.LOLWUT   |          | Provides an answer to a yes/no question.  |
+| PING          | client.Ping     |          | Returns the server's liveliness response. |
+| SELECT        | client.Select   |          | Changes the selected database (no-op).    |
 
 
 ### Sets
 
-| Redis Command | redkacli.Client    | redka.DB            | Description                                       |
-|------------|--------------------|---------------------|--------------------------------------------|
-| SADD       | client.SAdd        | DB.Set().Add        | Adds one or more members to a set.         |
-| SCARD      | client.SCard       | DB.Set().Len        | Returns the number of members in a set.    |
-| SDIFF      | client.SDiff       | DB.Set().Diff       | Returns the difference of multiple sets.   |
-| SDIFFSTORE | client.SDiffStore  | DB.Set().DiffStore  | Stores the difference of multiple sets.    |
-| SINTER     | client.SInter      | DB.Set().Inter      | Returns the intersection of multiple sets. |
-| SINTERSTORE| client.SInterStore | DB.Set().InterStore | Stores the intersection of multiple sets.  |
-| SISMEMBER  | client.SIsMember   | DB.Set().Exists     | Determines whether a member belongs to a set.|
-| SMEMBERS   | client.SMembers    | DB.Set().Items      | Returns all members of a set.              |
-| SMOVE      | client.SMove       | DB.Set().Move       | Moves a member from one set to another.    |
-| SPOP       | client.SPop        | DB.Set().Pop        | Returns a random member after removing it. |
-| SRANDMEMBER| client.SRandMember | DB.Set().Random     | Returns a random member from a set.        |
-| SREM       | client.SRem        | DB.Set().Delete     | Removes one or more members from a set.    |
-| SSCAN      | client.SScan       | DB.Set().Scanner    | Iterates over members of a set.            |
-| SUNION     | client.SUnion      | DB.Set().Union      | Returns the union of multiple sets.        |
-| SUNIONSTORE| client.SUnionStore | DB.Set().UnionStore | Stores the union of multiple sets.         |
+| Redis Command | redkacli.Client    | redka.DB            | Description                                   |
+|---------------|--------------------|---------------------|-----------------------------------------------|
+| SADD          | client.SAdd        | DB.Set().Add        | Adds one or more members to a set.            |
+| SCARD         | client.SCard       | DB.Set().Len        | Returns the number of members in a set.       |
+| SDIFF         | client.SDiff       | DB.Set().Diff       | Returns the difference of multiple sets.      |
+| SDIFFSTORE    | client.SDiffStore  | DB.Set().DiffStore  | Stores the difference of multiple sets.       |
+| SINTER        | client.SInter      | DB.Set().Inter      | Returns the intersection of multiple sets.    |
+| SINTERSTORE   | client.SInterStore | DB.Set().InterStore | Stores the intersection of multiple sets.     |
+| SISMEMBER     | client.SIsMember   | DB.Set().Exists     | Determines whether a member belongs to a set. |
+| SMEMBERS      | client.SMembers    | DB.Set().Items      | Returns all members of a set.                 |
+| SMOVE         | client.SMove       | DB.Set().Move       | Moves a member from one set to another.       |
+| SPOP          | client.SPop        | DB.Set().Pop        | Returns a random member after removing it.    |
+| SRANDMEMBER   | client.SRandMember | DB.Set().Random     | Returns a random member from a set.           |
+| SREM          | client.SRem        | DB.Set().Delete     | Removes one or more members from a set.       |
+| SSCAN         | client.SScan       | DB.Set().Scanner    | Iterates over members of a set.               |
+| SUNION        | client.SUnion      | DB.Set().Union      | Returns the union of multiple sets.           |
+| SUNIONSTORE   | client.SUnionStore | DB.Set().UnionStore | Stores the union of multiple sets.            |
 
 
 ### Zsets
 
-| Redis Command      | redkacli.Client         | redka.DB            | Description                                       |
-|-----------------|-------------------------|---------------------|--------------------------------------------|
-| ZADD            | client.ZAdd             | DB.ZSet().AddMany   | Adds or updates one or more members of a set.|
-| ZCARD           | client.ZCard            | DB.ZSet().Len       | Returns the number of members in a set.      |
-| ZCOUNT          | client.ZCount           | DB.ZSet().Count     | Returns the number of members of a set within a range of scores.|
-| ZINCRBY         | client.ZIncrBy          | DB.ZSet().Incr      | Increments the score of a member in a set.   |
-| ZINTER          | client.ZInter           | DB.ZSet().InterWith | Returns the intersection of multiple sets.   |
-| ZINTERSTORE     | client.ZInterStore      | DB.ZSet().InterWith | Stores the intersection of multiple sets in a key.|
-| ZRANGE          | client.ZRange           | DB.ZSet().RangeWith | Returns members of a set within a range of indexes.|
-| ZRANGEBYSCORE   | client.ZRangeByScore    | DB.ZSet().RangeWith | Returns members of a set within a range of scores.|
-| ZRANK           | client.ZRank            | DB.ZSet().GetRank   | Returns the index of a member in a set ordered by ascending scores.|
-| ZREM            | client.ZRem             | DB.ZSet().Delete    | Removes one or more members from a set.    |
-| ZREMRANGEBYRANK | client.ZRemRangeByRank  | DB.ZSet().DeleteWith| Removes members of a set within a range of indexes.|
-| ZREMRANGEBYSCORE| client.ZRemRangeByScore | DB.ZSet().DeleteWith| Removes members of a set within a range of scores.|
-| ZREVRANGE       | client.ZRevRange        | DB.ZSet().RangeWith | Returns members of a set within a range of indexes in reverse order.|
-| ZREVRANGEBYSCORE| client.ZRevRangeByScore | DB.ZSet().RangeWith | Returns members of a set within a range of scores in reverse order.|
-| ZREVRANK        | client.ZRevRank         | DB.ZSet().GetRankRev| Returns the index of a member in a set ordered by descending scores.|
-| ZSCAN           | client.ZScan            | DB.ZSet().Scan      | Iterates over members and scores of a set. |
-| ZSCORE          | client.ZScore           | DB.ZSet().GetScore  | Returns the score of a member in a set.    |
-| ZUNION          | client.ZUnion           | DB.ZSet().UnionWith | Returns the union of multiple sets.        |
-| ZUNIONSTORE     | client.ZUnionStore                 | DB.ZSet().UnionWith | Stores the union of multiple sets in a key.  |
+| Redis Command    | redkacli.Client         | redka.DB             | Description                                                          |
+|------------------|-------------------------|----------------------|----------------------------------------------------------------------|
+| ZADD             | client.ZAdd             | DB.ZSet().AddMany    | Adds or updates one or more members of a set.                        |
+| ZCARD            | client.ZCard            | DB.ZSet().Len        | Returns the number of members in a set.                              |
+| ZCOUNT           | client.ZCount           | DB.ZSet().Count      | Returns the number of members of a set within a range of scores.     |
+| ZINCRBY          | client.ZIncrBy          | DB.ZSet().Incr       | Increments the score of a member in a set.                           |
+| ZINTER           | client.ZInter           | DB.ZSet().InterWith  | Returns the intersection of multiple sets.                           |
+| ZINTERSTORE      | client.ZInterStore      | DB.ZSet().InterWith  | Stores the intersection of multiple sets in a key.                   |
+| ZRANGE           | client.ZRange           | DB.ZSet().RangeWith  | Returns members of a set within a range of indexes.                  |
+| ZRANGEBYSCORE    | client.ZRangeByScore    | DB.ZSet().RangeWith  | Returns members of a set within a range of scores.                   |
+| ZRANK            | client.ZRank            | DB.ZSet().GetRank    | Returns the index of a member in a set ordered by ascending scores.  |
+| ZREM             | client.ZRem             | DB.ZSet().Delete     | Removes one or more members from a set.                              |
+| ZREMRANGEBYRANK  | client.ZRemRangeByRank  | DB.ZSet().DeleteWith | Removes members of a set within a range of indexes.                  |
+| ZREMRANGEBYSCORE | client.ZRemRangeByScore | DB.ZSet().DeleteWith | Removes members of a set within a range of scores.                   |
+| ZREVRANGE        | client.ZRevRange        | DB.ZSet().RangeWith  | Returns members of a set within a range of indexes in reverse order. |
+| ZREVRANGEBYSCORE | client.ZRevRangeByScore | DB.ZSet().RangeWith  | Returns members of a set within a range of scores in reverse order.  |
+| ZREVRANK         | client.ZRevRank         | DB.ZSet().GetRankRev | Returns the index of a member in a set ordered by descending scores. |
+| ZSCAN            | client.ZScan            | DB.ZSet().Scan       | Iterates over members and scores of a set.                           |
+| ZSCORE           | client.ZScore           | DB.ZSet().GetScore   | Returns the score of a member in a set.                              |
+| ZUNION           | client.ZUnion           | DB.ZSet().UnionWith  | Returns the union of multiple sets.                                  |
+| ZUNIONSTORE      | client.ZUnionStore      | DB.ZSet().UnionWith  | Stores the union of multiple sets in a key.                          |
 
 
 ### Transactions
 
-| Redis Command | redkacli.Client    | redka.DB            | Description                                       |
-|------------|--------------------|---------------------|--------------------------------------------|
-| DISCARD    | client.Transaction | DB.View / DB.Update | Discards a transaction.                    |
-| EXEC       | client.Transaction | DB.View / DB.Update | Executes all commands in a transaction.    |
-| MULTI      | client.Transaction | DB.View / DB.Update | Starts a transaction.                      |
+| Redis Command | redkacli.Client    | redka.DB            | Description                             |
+|---------------|--------------------|---------------------|-----------------------------------------|
+| DISCARD       | client.Transaction | DB.View / DB.Update | Discards a transaction.                 |
+| EXEC          | client.Transaction | DB.View / DB.Update | Executes all commands in a transaction. |
+| MULTI         | client.Transaction | DB.View / DB.Update | Starts a transaction.                   |
 
