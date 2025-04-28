@@ -26,6 +26,10 @@ func NewOptions() *Options {
 	}
 }
 
+func (opts *Options) SetPath(path string) {
+	opts.path = path
+}
+
 func (opts *Options) SetDriverName(driverName string) {
 	opts.driverName = driverName
 }
@@ -40,6 +44,10 @@ func (opts *Options) SetPragma(pragma map[string]string) {
 
 func (opts *Options) AddPragma(key, value string) {
 	opts.pragma[key] = value
+}
+
+func (c *Client) Close() error {
+	return c.db.Close()
 }
 
 func New(o *Options) (*Client, error) {
