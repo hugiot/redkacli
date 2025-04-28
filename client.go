@@ -3,6 +3,8 @@ package redkacli
 import (
 	"github.com/nalgeon/redka"
 	"log/slog"
+
+	_ "github.com/mattn/go-sqlite3"
 )
 
 type Client struct {

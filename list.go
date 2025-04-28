@@ -108,5 +108,5 @@ func (c *Client) RPush(key string, elements ...interface{}) (int64, error) {
 		}
 		return nil
 	})
-	return i, err
+	return int64(i), err
 }

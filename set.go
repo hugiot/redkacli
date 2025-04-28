@@ -1,11 +1,13 @@
 package redkacli
 
-func (c *Client) SAdd(key string, members ...interface{}) (int, error) {
-	return c.db.Set().Add(key, members...)
+func (c *Client) SAdd(key string, members ...interface{}) (int64, error) {
+	i, err := c.db.Set().Add(key, members...)
+	return int64(i), err
 }
 
-func (c *Client) SCard(key string) (int, error) {
-	return c.db.Set().Len(key)
+func (c *Client) SCard(key string) (int64, error) {
+	i, err := c.db.Set().Len(key)
+	return int64(i), err
 }
 
 func (c *Client) SDiff(keys ...string) ([]string, error) {
@@ -20,8 +22,9 @@ func (c *Client) SDiff(keys ...string) ([]string, error) {
 	return result, nil
 }
 
-func (c *Client) SDiffStore(destination string, keys ...string) (int, error) {
-	return c.db.Set().DiffStore(destination, keys...)
+func (c *Client) SDiffStore(destination string, keys ...string) (int64, error) {
+	i, err := c.db.Set().DiffStore(destination, keys...)
+	return int64(i), err
 }
 
 func (c *Client) SInter(keys ...string) ([]string, error) {
@@ -36,8 +39,9 @@ func (c *Client) SInter(keys ...string) ([]string, error) {
 	return result, nil
 }
 
-func (c *Client) SInterStore(destination string, keys ...string) (int, error) {
-	return c.db.Set().InterStore(destination, keys...)
+func (c *Client) SInterStore(destination string, keys ...string) (int64, error) {
+	i, err := c.db.Set().InterStore(destination, keys...)
+	return int64(i), err
 }
 
 func (c *Client) SIsMember(key string, member interface{}) (bool, error) {
@@ -76,8 +80,9 @@ func (c *Client) SRandMember(key string) (string, error) {
 	return value.String(), nil
 }
 
-func (c *Client) SRem(key string, members ...interface{}) (int, error) {
-	return c.db.Set().Delete(key, members...)
+func (c *Client) SRem(key string, members ...interface{}) (int64, error) {
+	i, err := c.db.Set().Delete(key, members...)
+	return int64(i), err
 }
 
 func (c *Client) SScan(key string, cursor uint64, match string, count int64) ([]string, uint64, error) {
@@ -104,6 +109,7 @@ func (c *Client) SUnion(keys ...string) ([]string, error) {
 	return result, nil
 }
 
-func (c *Client) SUnionStore(destination string, keys ...string) (int, error) {
-	return c.db.Set().UnionStore(destination, keys...)
+func (c *Client) SUnionStore(destination string, keys ...string) (int64, error) {
+	i, err := c.db.Set().UnionStore(destination, keys...)
+	return int64(i), err
 }
